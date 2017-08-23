@@ -1,0 +1,13 @@
+.App {
+    text-align: center;
+    padding: 20px;
+}
+
+.correct {
+    border: 2px solid lightgreen;
+}
+
+.incorrect {
+    border: 2px solid orangered;
+}
+
