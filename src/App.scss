@@ -1,0 +1,75 @@
+.App {
+    background: #d9a7c7;
+    background: linear-gradient(to bottom, #d9a7c7, #fffcdc);
+    text-align: center;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.correct {
+    border-color: lightgreen !important;
+}
+
+.incorrect {
+    border-color: orangered !important;
+}
+
+.quiz {
+    margin-top: 20px;
+    &--p-t-n {
+        .staff-photo {
+            height: 50vh;
+            width: 50vh;
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: rgba(100, 30, 30, 0.2);
+        }
+
+        .staff-names {
+            text-align: center;
+        }
+
+        .staff-name {
+            margin: 10px 0;
+            width: 50%;
+            line-height: 50px;
+            display: inline-block;
+            border-radius: 8px;
+            border: 2px solid lightslategrey;
+        }
+    }
+    &--n-t-p {
+        .staff-name {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .staff-pics {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .staff-pic {
+                margin: 10px;
+                height: 200px;
+                width: 200px;
+                cursor: pointer;
+                border: 2px solid transparent;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: rgba(100, 30, 30, 0.2);
+            }
+        }
+    }
+    .proceed {
+        text-decoration: underline;
+        color: cornflowerblue;
+        cursor: pointer;
+    }
+}
+

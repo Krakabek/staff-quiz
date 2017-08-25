@@ -44,17 +44,24 @@ class NameToPicQuiz extends Component {
     render() {
         const {employees, employeeToGuess, guessedIndex} = this.state;
         return (
-            <div className="quiz quiz--p-t-n">
-                <div className="staff-photo">
-                    <div>{employees[employeeToGuess].name}</div>
+            <div className="quiz quiz--n-t-p">
+                <h1 className="quiz__header">
+                    Who is {employees[employeeToGuess].name}?
+                </h1>
+                <div className="staff-name">
+                    <div></div>
                 </div>
-                <div className="staff-names">
+                <div className="staff-pics">
                     {employees.map((employee, index) => {
                         return <div
                             key={employee.pic}
-                            className={this.guessedClass(index)}
+                            style={{
+                                backgroundImage: `url("${process.env.PUBLIC_URL +
+                                "resources/" +
+                                employee.pic}.jpg")`
+                            }}
+                            className={`staff-pic ${this.guessedClass(index)}`}
                             onClick={() => this.setAnswers(index)}>
-                            {employee.pic}.jpg
                         </div>
                     })}
                 </div>
