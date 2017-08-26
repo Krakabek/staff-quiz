@@ -19,7 +19,7 @@ class NameToPicQuiz extends BaseQuizComponent {
                             key={employee.pic}
                             style={{
                                 backgroundImage: `url("${process.env.PUBLIC_URL +
-                                "resources/" +
+                                "/resources/" +
                                 employee.pic}.jpg")`
                             }}
                             className={`staff-pic ${this.focusClassName(index)} ${this.guessedClass(index)}`}

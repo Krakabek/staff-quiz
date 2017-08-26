@@ -13,7 +13,7 @@ class PicToNameQuiz extends BaseQuizComponent {
                 <div className="staff-photo"
                      style={{
                          backgroundImage: `url("${process.env.PUBLIC_URL +
-                         "resources/" +
+                         "/resources/" +
                          employees[employeeToGuess].pic}.jpg")`
                      }}>
                     {employees[employeeToGuess].pic}
