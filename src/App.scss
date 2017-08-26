@@ -100,6 +100,9 @@
             cursor: pointer;
         }
     }
+    .focused{
+        box-shadow: 0 0 1px 1px #579fcb;
+    }
 }
 
 @keyframes appearance {

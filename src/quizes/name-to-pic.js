@@ -4,7 +4,7 @@ import BaseQuizComponent from "./base-quiz";
 class NameToPicQuiz extends BaseQuizComponent {
 
     render() {
-        const {employees, employeeToGuess, guessedIndex} = this.state;
+        const {employees, employeeToGuess, guessedIndex, nextBtnIsFocused} = this.state;
         return (
             <div className="quiz quiz--n-t-p">
                 <h1 className="quiz__header">
@@ -22,16 +22,18 @@ class NameToPicQuiz extends BaseQuizComponent {
                                 "resources/" +
                                 employee.pic}.jpg")`
                             }}
-                            className={`staff-pic ${this.guessedClass(index)}`}
+                            className={`staff-pic ${this.focusClassName(index)} ${this.guessedClass(index)}`}
                             onClick={() => this.setAnswers(index)}>
                             {employee.pic}
                         </div>
                     })}
                 </div>
                 {guessedIndex !== null
-                    ? <div className="proceed" onClick={() => this.shuffle()}>
+                    ? <a href={void(0)} className={`proceed ${nextBtnIsFocused?'focused':''}`}
+                           tabIndex="0"
+                           onClick={() => this.shuffle()}>
                         Next
-                    </div>
+                    </a>
                     : null}
             </div>
         );

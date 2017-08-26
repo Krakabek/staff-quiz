@@ -17,7 +17,6 @@ class App extends Component {
     }
 
     guessHandler(status) {
-        console.log(status);
         let newRow = 0;
         if (status) {
             newRow = this.state.guessedInARow + 1;
@@ -37,20 +36,23 @@ class App extends Component {
         const {guessedInARow} = this.state;
         if (!guessedInARow) return;
         if (guessedInARow > 9) {
-            return "spree";
+            return 'spree';
         }
         if (guessedInARow > 4) {
-            return "rampage";
+            return 'rampage';
         }
-        return "simple";
+        return 'simple';
     }
 
     render() {
         const {picToName, guessedInARow} = this.state;
         return (
             <div className="App">
-                <SwitchButton name="switch-8" mode="select" labelRight="Name to picture"
-                              label="Picture to name" onChange={this.changeHandler}/>
+                <SwitchButton name="switch-8"
+                              mode="select"
+                              labelRight="Name to picture"
+                              label="Picture to name"
+                              onChange={this.changeHandler}/>
                 <div className="row-counter">
                     {guessedInARow > 1
                         ? <div className={`row-decoration row-decoration--${this.rowDecorationClass()}`}>
