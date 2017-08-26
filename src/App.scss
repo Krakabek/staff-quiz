@@ -6,70 +6,146 @@
     height: 100%;
     width: 100%;
     box-sizing: border-box;
-}
 
-.correct {
-    border-color: lightgreen !important;
-}
-
-.incorrect {
-    border-color: orangered !important;
-}
-
-.quiz {
-    margin-top: 20px;
-    &--p-t-n {
-        .staff-photo {
-            height: 50vh;
-            width: 50vh;
-            display: inline-block;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: center;
-            background-color: rgba(100, 30, 30, 0.2);
-        }
-
-        .staff-names {
-            text-align: center;
-        }
-
-        .staff-name {
-            margin: 10px 0;
-            width: 50%;
-            line-height: 50px;
-            display: inline-block;
-            border-radius: 8px;
-            border: 2px solid lightslategrey;
+    .row-counter {
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        .row-decoration {
+            &--simple {
+                color: aqua;
+                text-shadow: 0 0 3px cornflowerblue;
+                animation: appearance 500ms normal forwards ease-in;
+                animation-iteration-count: 1;
+            }
+            &--rampage{
+                font-size: 20px;
+                color: crimson;
+                text-shadow: 0 0 3px gold;
+                animation: big-appearance 500ms normal forwards ease-in;
+                animation-iteration-count: 1;
+            }
+            &--spree{
+                font-size: 24px;
+                color: dodgerblue;
+                text-shadow: 0 0 3px floralwhite;
+                animation: large-appearance 500ms normal forwards ease-in;
+                animation-iteration-count: 1;
+            }
         }
     }
-    &--n-t-p {
-        .staff-name {
-            font-size: 30px;
-            margin-bottom: 30px;
-        }
 
-        .staff-pics {
-            display: flex;
-            align-items: center;
-            justify-content: center;
+    .correct {
+        border-color: lightgreen !important;
+    }
 
-            .staff-pic {
-                margin: 10px;
-                height: 200px;
-                width: 200px;
-                cursor: pointer;
-                border: 2px solid transparent;
+    .incorrect {
+        border-color: orangered !important;
+    }
+
+    .quiz {
+        margin-top: 20px;
+        &--p-t-n {
+            .staff-photo {
+                height: 50vh;
+                width: 50vh;
+                display: inline-block;
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
                 background-color: rgba(100, 30, 30, 0.2);
             }
+
+            .staff-names {
+                text-align: center;
+            }
+
+            .staff-name {
+                margin: 10px 0;
+                width: 50%;
+                line-height: 50px;
+                display: inline-block;
+                border-radius: 8px;
+                border: 2px solid lightslategrey;
+            }
         }
-    }
-    .proceed {
-        text-decoration: underline;
-        color: cornflowerblue;
-        cursor: pointer;
+        &--n-t-p {
+            .staff-name {
+                font-size: 30px;
+                margin-bottom: 30px;
+            }
+
+            .staff-pics {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .staff-pic {
+                    margin: 10px;
+                    height: 200px;
+                    width: 200px;
+                    cursor: pointer;
+                    border: 2px solid transparent;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-color: rgba(100, 30, 30, 0.2);
+                }
+            }
+        }
+        .proceed {
+            text-decoration: underline;
+            color: cornflowerblue;
+            cursor: pointer;
+        }
     }
 }
 
+@keyframes appearance {
+    0% {
+        transform: scale(0.2);
+    }
+    70% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes big-appearance {
+    0% {
+        transform: scale(0.2);
+    }
+    70% {
+        transform: scale(2.5);
+    }
+    80% {
+        transform: scale(1.5);
+    }
+    90% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes large-appearance {
+    0% {
+        transform: scale(0.2);
+    }
+    70% {
+        transform: scale(4.5) rotate(90deg);
+    }
+    80% {
+        transform: scale(1.5) rotate(180deg);
+    }
+    90% {
+        transform: scale(2) rotate(270deg);
+    }
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}

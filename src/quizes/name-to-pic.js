@@ -1,45 +1,7 @@
-import React, {Component} from 'react';
-import {getRandomEmployees, randomInRange} from '../employees';
+import React from 'react';
+import BaseQuizComponent from "./base-quiz";
 
-class NameToPicQuiz extends Component {
-    constructor() {
-        super();
-        this.state = {
-            employees: getRandomEmployees(3),
-            employeeToGuess: randomInRange(3),
-            guessedIndex: null
-        };
-        this.setAnswers = this.setAnswers.bind(this);
-        this.shuffle = this.shuffle.bind(this);
-    }
-
-    shuffle() {
-        this.setState({
-            employees: getRandomEmployees(3),
-            employeeToGuess: randomInRange(3),
-            guessedIndex: null
-        });
-    }
-
-    setAnswers(index) {
-        if (this.state.guessedIndex === null) {
-            this.setState({
-                guessedIndex: index
-            });
-        }
-    }
-
-    guessedClass(index) {
-        if (this.state.guessedIndex === null) {
-            return "";
-        }
-        if (this.state.employeeToGuess === index) {
-            return "correct";
-        } else if (this.state.guessedIndex === index) {
-            return "incorrect";
-        }
-        return "";
-    }
+class NameToPicQuiz extends BaseQuizComponent {
 
     render() {
         const {employees, employeeToGuess, guessedIndex} = this.state;
@@ -62,6 +24,7 @@ class NameToPicQuiz extends Component {
                             }}
                             className={`staff-pic ${this.guessedClass(index)}`}
                             onClick={() => this.setAnswers(index)}>
+                            {employee.pic}
                         </div>
                     })}
                 </div>

@@ -9,10 +9,22 @@ class App extends Component {
     constructor() {
         super();
         this.state = {
-            picToName: true
+            picToName: true,
+            guessedInARow: 0
         };
         this.changeHandler = this.changeHandler.bind(this);
+        this.guessHandler = this.guessHandler.bind(this);
+    }
 
+    guessHandler(status) {
+        console.log(status);
+        let newRow = 0;
+        if (status) {
+            newRow = this.state.guessedInARow + 1;
+        }
+        this.setState({
+            guessedInARow: newRow
+        });
     }
 
     changeHandler() {
@@ -21,19 +33,39 @@ class App extends Component {
         });
     }
 
+    rowDecorationClass() {
+        const {guessedInARow} = this.state;
+        if (guessedInARow < 3) {
+            return "simple";
+        }
+        if (guessedInARow < 4) {
+            return "rampage";
+        }
+        if (guessedInARow < 5) {
+            return "spree";
+        }
+    }
+
     render() {
-        const {picToName} = this.state;
+        const {picToName, guessedInARow} = this.state;
         return (
             <div className="App">
                 <SwitchButton name="switch-8" mode="select" labelRight="Name to picture"
                               label="Picture to name" onChange={this.changeHandler}/>
+                <div className="row-counter">
+                    {guessedInARow > 1
+                        ? <div className={`row-decoration row-decoration--${this.rowDecorationClass()}`}>
+                            {guessedInARow} in a row!
+                        </div>
+                        : null}
+                </div>
                 <div className="quiz-wrapper">
                     {picToName
                         ? <div>
-                            <PicToNameQuiz/>
+                            <PicToNameQuiz guessHandler={this.guessHandler}/>
                         </div>
                         : <div>
-                            <NameToPicQuiz/>
+                            <NameToPicQuiz guessHandler={this.guessHandler}/>
                         </div>
                     }
                 </div>
