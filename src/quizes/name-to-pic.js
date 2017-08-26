@@ -31,7 +31,7 @@ class NameToPicQuiz extends BaseQuizComponent {
                 {guessedIndex !== null
                     ? <a href={void(0)} className={`proceed ${nextBtnIsFocused?'focused':''}`}
                            tabIndex="0"
-                           onClick={() => this.shuffle()}>
+                           onClick={this.shuffle}>
                         Next
                     </a>
                     : null}

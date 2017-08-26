@@ -7,6 +7,23 @@
     width: 100%;
     box-sizing: border-box;
 
+    .audio-manager{
+        position: absolute;
+
+        .sounds{
+            height: 24px;
+            width: 24px;
+            background-image: url("./img/sound_on.png");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+
+            &--disabled{
+                background-image: url("./img/sound_off.png");
+            }
+        }
+    }
+
     .row-counter {
         display: inline-block;
         position: absolute;
@@ -34,14 +51,6 @@
                 animation-iteration-count: 1;
             }
         }
-    }
-
-    .correct {
-        border-color: lightgreen !important;
-    }
-
-    .incorrect {
-        border-color: orangered !important;
     }
 
     .quiz {
@@ -100,6 +109,15 @@
             cursor: pointer;
         }
     }
+
+    .correct {
+        border-color: lightgreen !important;
+    }
+
+    .incorrect {
+        border-color: orangered !important;
+    }
+
     .focused{
         box-shadow: 0 0 1px 1px #579fcb;
     }

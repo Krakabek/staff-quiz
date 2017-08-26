@@ -4,6 +4,7 @@ import './App.css';
 import SwitchButton from 'react-switch-button';
 import PicToNameQuiz from "./quizes/pic-to-name";
 import NameToPicQuiz from "./quizes/name-to-pic";
+import AudioManager from "./audio/audio";
 
 class App extends Component {
     constructor() {
@@ -14,12 +15,22 @@ class App extends Component {
         };
         this.changeHandler = this.changeHandler.bind(this);
         this.guessHandler = this.guessHandler.bind(this);
+        this.soundBank = {
+            success: () => {
+            },
+            fail: () => {
+            }
+        };
     }
 
     guessHandler(status) {
+        const {guessedInARow} = this.state;
         let newRow = 0;
         if (status) {
-            newRow = this.state.guessedInARow + 1;
+            this.soundBank.success();
+            newRow = guessedInARow + 1;
+        } else {
+            this.soundBank.fail();
         }
         this.setState({
             guessedInARow: newRow
@@ -48,6 +59,7 @@ class App extends Component {
         const {picToName, guessedInARow} = this.state;
         return (
             <div className="App">
+                <AudioManager player={this.soundBank}/>
                 <SwitchButton name="switch-8"
                               mode="select"
                               labelRight="Name to picture"

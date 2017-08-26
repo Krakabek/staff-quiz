@@ -6,6 +6,17 @@
   height: 100%;
   width: 100%;
   box-sizing: border-box; }
+  .App .audio-manager {
+    position: absolute; }
+    .App .audio-manager .sounds {
+      height: 24px;
+      width: 24px;
+      background-image: url("./img/sound_on.png");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center; }
+      .App .audio-manager .sounds--disabled {
+        background-image: url("./img/sound_off.png"); }
   .App .row-counter {
     display: inline-block;
     position: absolute;
@@ -28,10 +39,6 @@
       text-shadow: 0 0 3px floralwhite;
       animation: large-appearance 500ms normal forwards ease-in;
       animation-iteration-count: 1; }
-  .App .correct {
-    border-color: lightgreen !important; }
-  .App .incorrect {
-    border-color: orangered !important; }
   .App .quiz {
     margin-top: 20px; }
     .App .quiz--p-t-n .staff-photo {
@@ -72,6 +79,10 @@
       text-decoration: underline;
       color: cornflowerblue;
       cursor: pointer; }
+  .App .correct {
+    border-color: lightgreen !important; }
+  .App .incorrect {
+    border-color: orangered !important; }
   .App .focused {
     box-shadow: 0 0 1px 1px #579fcb; }
 
