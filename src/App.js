@@ -35,15 +35,14 @@ class App extends Component {
 
     rowDecorationClass() {
         const {guessedInARow} = this.state;
-        if (guessedInARow < 3) {
-            return "simple";
-        }
-        if (guessedInARow < 4) {
-            return "rampage";
-        }
-        if (guessedInARow < 5) {
+        if (!guessedInARow) return;
+        if (guessedInARow > 9) {
             return "spree";
         }
+        if (guessedInARow > 4) {
+            return "rampage";
+        }
+        return "simple";
     }
 
     render() {
